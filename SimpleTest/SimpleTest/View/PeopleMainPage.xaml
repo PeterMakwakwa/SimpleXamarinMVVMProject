@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SimpleTest"
+             x:Class="SimpleTest.PeopleMainPage"
+             xmlns:viewModels="clr-namespace:SimpleTest.ViewModel"
+             xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms">
+
+    <ContentPage.BindingContext>
+        <viewModels:PeopleViewModel/>
+    </ContentPage.BindingContext>
+
+
+
+    <StackLayout>
+        
+        <SearchBar x:Name="poeplesearch" TextChanged="SearchBar_TextChanged" SearchButtonPressed="poeplesearch_SearchButtonPressed" Placeholder="Search text" HeightRequest="50"></SearchBar>
+
+        <StackLayout Orientation="Horizontal" >
+            <Label Text="ID"/>
+            <Label Text="LastName" />
+            <Label Text="FirstName"/>
+            <Label Text="Date Of Birth"/>
+        </StackLayout>
+        <ListView HasUnevenRows="True"
+              x:Name="PeopleList"
+              ItemTapped="ListView_ItemTapped"
+              ItemsSource="{Binding PeopleSetList}"
+              IsPullToRefreshEnabled="True"
+              RefreshCommand="{Binding RefreshCommand}"
+              IsRefreshing="{Binding IsRefreshing}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                      
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding personId}"/>
+                            <Label Text="{Binding lastName}"/>
+                            <Label Text="{Binding firstName}"/>
+                            <Label Text="{Binding birthDate}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Add People"
+                Clicked="Button_Clicked"/>
+
+    </StackLayout>
+
+
+</ContentPage>

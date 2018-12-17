@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleTest.View.AddEmployee"
+             xmlns:viewModels="clr-namespace:SimpleTest.ViewModel">
+    <ContentPage.BindingContext>
+        <viewModels:AddEmployeeViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Entry Placeholder="ID" Text="{Binding employee.personId}"/>
+        <Entry Placeholder="EmployeeNumber" Text="{Binding employee.employeeNumber}"/>
+        <Entry Placeholder="EmployeeDate" Text="{Binding employee.employedDate}"/>
+        <Entry Placeholder="TerminatedDate" Text="{Binding employee.terminatedDate}"/>
+
+        <Button Text="Save Data"
+                Command="{Binding SendAddEmpployeeCommand}"/>
+    </StackLayout>
+
+
+</ContentPage>

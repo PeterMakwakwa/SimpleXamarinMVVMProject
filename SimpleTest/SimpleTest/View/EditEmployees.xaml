@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleTest.View.EditEmployees"
+             xmlns:viewModels="clr-namespace:SimpleTest.ViewModel">
+    <!--<ContentPage.BindingContext>
+        <viewModels:EditEmployeeViewModel/>
+    </ContentPage.BindingContext>-->
+
+    <StackLayout>
+        <Entry Text="{Binding currentSelectedEmployees.personId}"/>
+        <Entry Text="{Binding currentSelectedEmployees.employeeNumber}"/>
+        <Entry Text="{Binding currentSelectedEmployees.employedDate}"/>
+        <Entry Text="{Binding currentSelectedEmployees.terminatedDate}"/>
+        <Button Text="Edit Employee"
+                Command="{Binding EditEmployeeCommand}"/>
+        <Button Text="Delete Employee"
+                Command="{Binding DeleteEmployeeCommand}"/>
+    </StackLayout>
+
+
+
+</ContentPage>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SimpleTest"
+             x:Class="SimpleTest.MainPage"
+             xmlns:viewModels="clr-namespace:SimpleTest.ViewModel">
+
+    <ContentPage.BindingContext>
+        <viewModels:EmployeeViewModel/>
+    </ContentPage.BindingContext>
+
+  
+    <StackLayout>
+
+       
+
+        <Button Text="View People"
+                Clicked="Button_Clicked_ViewPeople"/>
+        <!--<StackLayout Orientation="Horizontal">
+            <Label Text="EmployeeId"/>
+            <Label Text="PersonId"/>
+            <Label Text="EmployeeNumber"/>
+            <Label Text="EmployedDate"/>
+            <Label Text="TerminatedDate"/>
+        </StackLayout>-->
+        <ListView HasUnevenRows="True"
+              ItemTapped="ListView_ItemTapped"
+              ItemsSource="{Binding EmployeeSetList}"
+              IsPullToRefreshEnabled="True"
+              RefreshCommand="{Binding RefreshCommand}"
+              IsRefreshing="{Binding IsRefreshing}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding employeeId}"/>
+                            <Label Text="{Binding personId}"/>
+                            <Label Text="{Binding employeeNumber}"/>
+                            <Label Text="{Binding employedDate}"/>
+                            <Label Text="{Binding terminatedDate}"/>
+                            <Label Text="{Binding person} "/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Text="Add Employee"
+                Clicked="Button_Clicked"/>
+    </StackLayout>
+
+
+</ContentPage>

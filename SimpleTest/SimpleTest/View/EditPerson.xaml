@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleTest.View.EditPerson"
+             xmlns:viewModels="clr-namespace:SimpleTest.ViewModel">
+
+    <StackLayout>
+        <Entry Text="{Binding currentSelectedPerson.personId}"/>
+        <Entry Text="{Binding currentSelectedPerson.lastName}"/>
+        <Entry Text="{Binding currentSelectedPerson.firstName}"/>
+        <Entry Text="{Binding currentSelectedPerson.birthDate}"/>
+        
+
+        <Button Text="Edit Person"
+                Command="{Binding EditPersonCommand}"/>
+        <Button Text="Delete Person"
+                Command="{Binding DeletePersonCommand}"/>
+    </StackLayout>
+</ContentPage>
