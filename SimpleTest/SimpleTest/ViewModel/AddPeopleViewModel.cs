@@ -10,18 +10,21 @@ namespace SimpleTest.ViewModel
 {
     public class AddPeopleViewModel
     {
-        private Person person { get; set; }
-        private DataService dataservice = new DataService();
+        //private Person person { get; set; }
+        public Person persons { get; set; }
+        private IDataService _dataservice;
 
-        public AddPeopleViewModel()
+        public AddPeopleViewModel(IDataService dataService)
         {
-            person = new Person();
+            _dataservice = dataService;
+            persons = new Person();
         }
+
         public ICommand SendAddPersonCommand => new Command(async () =>
         {
             try
             {
-                await dataservice.PostPerson(person);
+                await _dataservice.PostPerson(persons);
             }
             catch (Exception)
             {

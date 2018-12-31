@@ -1,4 +1,5 @@
 ﻿using SimpleTest.Model;
+using SimpleTest.Services;
 using SimpleTest.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace SimpleTest.View
 	{
 		public EditPerson (Person person)
 		{
-            var editvModel1 = new EditPersonViewModel();
+            var editvModel1 = new EditPersonViewModel(new DataService());
             editvModel1.currentSelectedPerson = person;
             BindingContext = editvModel1;
            

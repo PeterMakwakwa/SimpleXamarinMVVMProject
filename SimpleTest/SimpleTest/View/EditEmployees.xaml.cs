@@ -1,4 +1,5 @@
 ﻿using SimpleTest.Model;
+using SimpleTest.Services;
 using SimpleTest.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace SimpleTest.View
 	{
 		public EditEmployees (Employees emplo)
 		{
-            var editvModel = new EditEmployeeViewModel();
+            var editvModel = new EditEmployeeViewModel(new DataService());
             editvModel.currentSelectedEmployees = emplo;
             BindingContext = editvModel;
             InitializeComponent();

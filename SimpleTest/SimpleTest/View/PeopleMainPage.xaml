@@ -4,11 +4,12 @@
              xmlns:local="clr-namespace:SimpleTest"
              x:Class="SimpleTest.PeopleMainPage"
              xmlns:viewModels="clr-namespace:SimpleTest.ViewModel"
-             xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms">
+             xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
+             BindingContext="{Binding PeopleViewModel, Source={StaticResource Locator}}">
 
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <viewModels:PeopleViewModel/>
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
 
 
 

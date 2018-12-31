@@ -1,4 +1,5 @@
 ﻿using SimpleTest.Model;
+using SimpleTest.Services;
 using SimpleTest.View;
 using SimpleTest.ViewModel;
 using System;
@@ -15,7 +16,7 @@ namespace SimpleTest
 		public PeopleMainPage()
 		{
 			InitializeComponent();
-            BindingContext = new PeopleViewModel();
+            BindingContext = new PeopleViewModel(new DataService());
 
         }
 

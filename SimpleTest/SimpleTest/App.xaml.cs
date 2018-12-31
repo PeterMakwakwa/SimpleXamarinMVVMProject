@@ -1,4 +1,8 @@
+using CommonServiceLocator;
+using SimpleTest.Services;
 using System;
+using Unity;
+using Unity.ServiceLocation;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,6 +14,11 @@ namespace SimpleTest
 		public App ()
 		{
 			InitializeComponent();
+
+            UnityContainer unityContainer = new UnityContainer();
+            unityContainer.RegisterType<IDataService, DataService>();
+
+            ServiceLocator.SetLocatorProvider(() => new UnityServiceLocator(unityContainer));
 
 			MainPage = new NavigationPage( new MainPage());
 		}

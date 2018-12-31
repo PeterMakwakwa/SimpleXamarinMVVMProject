@@ -2,16 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SimpleTest.View.AddEmployee"
-             xmlns:viewModels="clr-namespace:SimpleTest.ViewModel">
-    <ContentPage.BindingContext>
+             xmlns:viewModels="clr-namespace:SimpleTest.ViewModel"
+             BindingContext="{Binding AddEmployeeViewModel, Source={StaticResource Locator}}">
+    <!--<ContentPage.BindingContext>
         <viewModels:AddEmployeeViewModel/>
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
+
 
     <StackLayout>
-        <Entry Placeholder="ID" Text="{Binding employee.personId}"/>
-        <Entry Placeholder="EmployeeNumber" Text="{Binding employee.employeeNumber}"/>
-        <Entry Placeholder="EmployeeDate" Text="{Binding employee.employedDate}"/>
-        <Entry Placeholder="TerminatedDate" Text="{Binding employee.terminatedDate}"/>
+        <Entry Placeholder="EmployeeID" Text="{Binding Employee.employeeId}"/>
+        <Entry Placeholder="PersonID" Text="{Binding Employee.personId}"/>
+        <Entry Placeholder="EmployeeNumber" Text="{Binding Employee.employeeNumber}"/>
+        <Entry Placeholder="EmployeeDate" Text="{Binding Employee.employedDate}"/>
+        <Entry Placeholder="TerminatedDate" Text="{Binding Employee.terminatedDate}"/>
+        <!--<Entry Placeholder="PersonID" Text="{Binding Employee.person.personId}"/>
+        <Entry Placeholder="LastName" Text="{Binding Employee.person.lastName}"/>
+        <Entry Placeholder="FirstName" Text="{Binding Employee.person.firstName}"/>
+        <Entry Placeholder="Date Of Birth" Text="{Binding Employee.person.birthDate}"/>-->
 
         <Button Text="Save Data"
                 Command="{Binding SendAddEmpployeeCommand}"/>

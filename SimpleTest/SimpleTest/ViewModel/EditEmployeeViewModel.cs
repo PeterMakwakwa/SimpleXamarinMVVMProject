@@ -11,18 +11,22 @@ namespace SimpleTest.ViewModel
     public class EditEmployeeViewModel
     {
         public Employees currentSelectedEmployees { get; set; }
-        private DataService dataservice = new DataService();
-
+        private readonly IDataService _dataservice;
+        public EditEmployeeViewModel(IDataService dataService)
+        {
+            _dataservice= dataService;
+        }
+       
         public ICommand EditEmployeeCommand => new Command(async () => {
 
             currentSelectedEmployees.employedDate = DateTime.UtcNow.ToString();
-            await dataservice.PutEmployee(currentSelectedEmployees.employeeId, currentSelectedEmployees);
+            await _dataservice.PutEmployee(currentSelectedEmployees.employeeId, currentSelectedEmployees);
         });
 
         public ICommand DeleteEmployeeCommand => new Command(async () => {
 
             currentSelectedEmployees.employedDate = DateTime.UtcNow.ToString();
-            await dataservice.DeleteEmployees(currentSelectedEmployees.employeeId);
+            await _dataservice.DeleteEmployees(currentSelectedEmployees.employeeId);
         });
 
     }

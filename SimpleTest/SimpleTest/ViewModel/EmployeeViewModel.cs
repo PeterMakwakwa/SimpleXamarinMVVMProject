@@ -14,7 +14,8 @@ namespace SimpleTest.ViewModel
     public class EmployeeViewModel: INotifyPropertyChanged
     {
         private List<Employees> employees { get; set;}
-        private DataService dataservice = new DataService();
+        // private DataService dataservice = new DataService();
+        private readonly IDataService _dataService;
         private bool isitrefreshing;
         public bool IsRefreshing
         {
@@ -43,15 +44,16 @@ namespace SimpleTest.ViewModel
 
         #endregion
 
-        public EmployeeViewModel()
+        public EmployeeViewModel(IDataService dataService)
         {
+            _dataService = dataService;
             Getemployees();
         }
 
         private async Task Getemployees()
         {
             IsRefreshing = true;
-            EmployeeSetList = await dataservice.GetEmployees();
+            EmployeeSetList = await _dataService.GetEmployees();
 
             IsRefreshing = false;
         }

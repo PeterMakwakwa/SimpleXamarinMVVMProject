@@ -3,26 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SimpleTest"
              x:Class="SimpleTest.MainPage"
-             xmlns:viewModels="clr-namespace:SimpleTest.ViewModel">
+             xmlns:viewModels="clr-namespace:SimpleTest.ViewModel"
+             BindingContext="{Binding EmployeeViewModel, Source={StaticResource Locator}}">
 
-    <ContentPage.BindingContext>
-        <viewModels:EmployeeViewModel/>
-    </ContentPage.BindingContext>
-
-  
     <StackLayout>
 
        
 
         <Button Text="View People"
                 Clicked="Button_Clicked_ViewPeople"/>
-        <!--<StackLayout Orientation="Horizontal">
-            <Label Text="EmployeeId"/>
-            <Label Text="PersonId"/>
-            <Label Text="EmployeeNumber"/>
-            <Label Text="EmployedDate"/>
-            <Label Text="TerminatedDate"/>
-        </StackLayout>-->
+       
         <ListView HasUnevenRows="True"
               ItemTapped="ListView_ItemTapped"
               ItemsSource="{Binding EmployeeSetList}"

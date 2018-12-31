@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CommonServiceLocator;
+using SimpleTest.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,8 @@ namespace SimpleTest.View
 		public AddEmployee ()
 		{
 			InitializeComponent ();
+            //First Solution when the axml not allowing paramiterized constructors
+          //  BindingContext = ServiceLocator.Current.GetInstance<AddEmployeeViewModel>();
 		}
 	}
 }

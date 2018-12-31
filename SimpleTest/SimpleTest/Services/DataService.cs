@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SimpleTest.Services
 {
-    public class DataService
+    public class DataService : IDataService
     {
         private string URlEmployee = "https://techtestapi.azurewebsites.net/api/Employees";
         private string URlPeople = "https://techtestapi.azurewebsites.net/api/People";

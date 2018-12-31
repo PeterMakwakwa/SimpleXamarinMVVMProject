@@ -2,17 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SimpleTest.View.AddPeople"
-             xmlns:viewModels="clr-namespace:SimpleTest.ViewModel">
-    <ContentPage.BindingContext>
-        <viewModels:AddPeopleViewModel/>
-    </ContentPage.BindingContext>
-
+             xmlns:viewModels="clr-namespace:SimpleTest.ViewModel"
+             BindingContext="{Binding AddPeopleViewModel, Source={StaticResource Locator}}">
     <StackLayout>
-        <Entry Placeholder="Last Name" Text="{Binding PeopleSetList.lastName}"/>
-        <Entry Placeholder="FirstName" Text="{Binding PeopleSetList.firstName}"/>
-        <Entry Placeholder="Date Of Birth" Text="{Binding PeopleSetList.birthDate}"/>
+        <Entry Placeholder="PersonID" Text="{Binding persons.personId}"/>
+        <Entry Placeholder="Last Name" Text="{Binding persons.lastName}"/>
+        <Entry Placeholder="FirstName" Text="{Binding persons.firstName}"/>
+        <Entry Placeholder="Date Of Birth" Text="{Binding persons.birthDate}"/>
         
-
         <Button Text="Save Data"
                 Command="{Binding SendAddPersonCommand}"/>
     </StackLayout>

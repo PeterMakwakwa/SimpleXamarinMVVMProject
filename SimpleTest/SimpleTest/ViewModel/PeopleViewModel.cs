@@ -14,8 +14,9 @@ namespace SimpleTest.ViewModel
     public class PeopleViewModel : INotifyPropertyChanged
     {
         private List<Person> peoples { get; set;}
-        public Person persons { get; set; }
-        private DataService dataservice = new DataService();
+        private Person persn { get; set; }
+       
+        private readonly IDataService _dataService;
         private bool isitrefreshing;
         public bool IsRefreshing
         {
@@ -44,22 +45,24 @@ namespace SimpleTest.ViewModel
 
         #endregion
 
-        public PeopleViewModel()
+        public PeopleViewModel(IDataService dataService)
         {
+            _dataService = dataService;
+            persn = new Person();
             GetPeople();
         }
 
         private async Task GetPeople()
         {
             IsRefreshing = true;
-            PeopleSetList = await dataservice.GetPeople();
+            PeopleSetList = await _dataService.GetPeople();
 
             IsRefreshing = false;
         }
         public ICommand SearchPleopleCommand => new Command(async () => {
 
            
-            await dataservice.Search(persons.personId);
+            await _dataService.Search(persn.personId);
         });
 
        
