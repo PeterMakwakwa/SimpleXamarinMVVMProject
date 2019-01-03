@@ -16,8 +16,8 @@ namespace SimpleTest
 			InitializeComponent();
 
             UnityContainer unityContainer = new UnityContainer();
-            unityContainer.RegisterType<IDataService, DataService>();
-
+            unityContainer.RegisterType<IPeopleDataService, PeopleDataservice>();
+            unityContainer.RegisterType<IEmployee, EmployeeDataService>();
             ServiceLocator.SetLocatorProvider(() => new UnityServiceLocator(unityContainer));
 
 			MainPage = new NavigationPage( new MainPage());

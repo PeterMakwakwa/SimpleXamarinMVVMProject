@@ -16,7 +16,7 @@ namespace SimpleTest
 		public PeopleMainPage()
 		{
 			InitializeComponent();
-            BindingContext = new PeopleViewModel(new DataService());
+            BindingContext = new PeopleViewModel(new PeopleDataservice());
 
         }
 

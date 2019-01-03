@@ -16,7 +16,7 @@ namespace SimpleTest.ViewModel
         private List<Person> peoples { get; set;}
         private Person persn { get; set; }
        
-        private readonly IDataService _dataService;
+        private readonly IPeopleDataService _people_dataService;
         private bool isitrefreshing;
         public bool IsRefreshing
         {
@@ -45,9 +45,9 @@ namespace SimpleTest.ViewModel
 
         #endregion
 
-        public PeopleViewModel(IDataService dataService)
+        public PeopleViewModel(IPeopleDataService dataService)
         {
-            _dataService = dataService;
+            _people_dataService = dataService;
             persn = new Person();
             GetPeople();
         }
@@ -55,14 +55,14 @@ namespace SimpleTest.ViewModel
         private async Task GetPeople()
         {
             IsRefreshing = true;
-            PeopleSetList = await _dataService.GetPeople();
+            PeopleSetList = await _people_dataService.GetPeople();
 
             IsRefreshing = false;
         }
         public ICommand SearchPleopleCommand => new Command(async () => {
 
            
-            await _dataService.Search(persn.personId);
+            await _people_dataService.Search(persn.personId);
         });
 
        

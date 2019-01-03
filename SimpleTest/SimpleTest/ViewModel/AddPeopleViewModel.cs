@@ -10,13 +10,14 @@ namespace SimpleTest.ViewModel
 {
     public class AddPeopleViewModel
     {
-        //private Person person { get; set; }
+        
         public Person persons { get; set; }
-        private IDataService _dataservice;
+       
+        private IPeopleDataService _people_dataservice;
 
-        public AddPeopleViewModel(IDataService dataService)
+        public AddPeopleViewModel(IPeopleDataService dataService)
         {
-            _dataservice = dataService;
+            _people_dataservice = dataService;
             persons = new Person();
         }
 
@@ -24,7 +25,7 @@ namespace SimpleTest.ViewModel
         {
             try
             {
-                await _dataservice.PostPerson(persons);
+                await _people_dataservice.PostPerson(persons);
             }
             catch (Exception)
             {

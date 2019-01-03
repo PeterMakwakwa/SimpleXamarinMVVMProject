@@ -11,21 +11,20 @@ namespace SimpleTest.ViewModel
     public class EditPersonViewModel
     {
         public Person currentSelectedPerson { get; set; }
-        //private DataService dataservice = new DataService();
-        private readonly IDataService _dataService;
+        private readonly IPeopleDataService _people_dataService;
 
-        public EditPersonViewModel(IDataService dataService)
+        public EditPersonViewModel(IPeopleDataService dataService)
         {
-            _dataService = dataService;
+            _people_dataService = dataService;
         }
         public ICommand EditPersonCommand => new Command(async () => {
            
-                await _dataService.PutPerson(currentSelectedPerson.personId, currentSelectedPerson);
+                await _people_dataService.PutPerson(currentSelectedPerson.personId, currentSelectedPerson);
         });
 
         public ICommand DeletePersonCommand => new Command(async () => {
            
-                await _dataService.DeletePerson(currentSelectedPerson.personId);
+                await _people_dataService.DeletePerson(currentSelectedPerson.personId);
         });
 
     }

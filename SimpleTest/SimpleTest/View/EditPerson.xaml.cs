@@ -17,7 +17,7 @@ namespace SimpleTest.View
 	{
 		public EditPerson (Person person)
 		{
-            var editvModel1 = new EditPersonViewModel(new DataService());
+            var editvModel1 = new EditPersonViewModel(new PeopleDataservice());
             editvModel1.currentSelectedPerson = person;
             BindingContext = editvModel1;
            
