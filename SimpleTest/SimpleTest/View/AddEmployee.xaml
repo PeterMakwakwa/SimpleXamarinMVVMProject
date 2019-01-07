@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SimpleTest.View.AddEmployee"
              xmlns:viewModels="clr-namespace:SimpleTest.ViewModel"
              BindingContext="{Binding AddEmployeeViewModel, Source={StaticResource Locator}}">
-    <!--<ContentPage.BindingContext>
-        <viewModels:AddEmployeeViewModel/>
-    </ContentPage.BindingContext>-->
+   
 
 
     <StackLayout>
@@ -15,11 +14,9 @@
         <Entry Placeholder="EmployeeNumber" Text="{Binding Employee.employeeNumber}"/>
         <Entry Placeholder="EmployeeDate" Text="{Binding Employee.employedDate}"/>
         <Entry Placeholder="TerminatedDate" Text="{Binding Employee.terminatedDate}"/>
-        <!--<Entry Placeholder="PersonID" Text="{Binding Employee.person.personId}"/>
-        <Entry Placeholder="LastName" Text="{Binding Employee.person.lastName}"/>
-        <Entry Placeholder="FirstName" Text="{Binding Employee.person.firstName}"/>
-        <Entry Placeholder="Date Of Birth" Text="{Binding Employee.person.birthDate}"/>-->
 
+        <!--<DatePicker Format="dd/MM/yyyy" Date="{Binding, Employee.terminatedDate}" MinimumDate="{Binding Source={x:Static sys:DateTime.Now}}"/>-->
+        <!--{Binding Source={x:Static sys:DateTime.Now}}-->
         <Button Text="Save Data"
                 Command="{Binding SendAddEmpployeeCommand}"/>
     </StackLayout>

@@ -19,13 +19,13 @@ namespace SimpleTest.ViewModel
        
         public ICommand EditEmployeeCommand => new Command(async () => {
 
-            currentSelectedEmployees.employedDate = DateTime.UtcNow.ToString();
+            //currentSelectedEmployees.employedDate = DateTime.UtcNow.ToString();
             await _employee_dataservice.PutEmployee(currentSelectedEmployees.employeeId, currentSelectedEmployees);
         });
 
         public ICommand DeleteEmployeeCommand => new Command(async () => {
 
-            currentSelectedEmployees.employedDate = DateTime.UtcNow.ToString();
+            //currentSelectedEmployees.employedDate = DateTime.UtcNow.ToString();
             await _employee_dataservice.DeleteEmployees(currentSelectedEmployees.employeeId);
         });
 

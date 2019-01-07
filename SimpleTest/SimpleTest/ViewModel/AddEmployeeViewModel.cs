@@ -22,8 +22,6 @@ namespace SimpleTest.ViewModel
         {
             try
             {
-                Employee.employedDate = DateTime.UtcNow.ToString();
-              
                 await _employee_dataservice.PostEmployee(Employee);
             }
             catch (Exception)

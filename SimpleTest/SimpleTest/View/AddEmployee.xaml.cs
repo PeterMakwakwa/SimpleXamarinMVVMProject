@@ -18,7 +18,13 @@ namespace SimpleTest.View
 		{
 			InitializeComponent ();
             //First Solution when the axml not allowing paramiterized constructors
-          //  BindingContext = ServiceLocator.Current.GetInstance<AddEmployeeViewModel>();
-		}
+            //  BindingContext = ServiceLocator.Current.GetInstance<AddEmployeeViewModel>();
+            DatePicker datePicker = new DatePicker
+            {
+                MinimumDate = new DateTime(2018, 1, 1),
+                MaximumDate = new DateTime(2018, 12, 31),
+                Date = new DateTime(2018, 6, 21)
+            };
+        }
 	}
 }

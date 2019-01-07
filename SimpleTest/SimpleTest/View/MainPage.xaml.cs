@@ -1,5 +1,7 @@
 ﻿using SimpleTest.Model;
+using SimpleTest.Services;
 using SimpleTest.View;
+using SimpleTest.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +16,8 @@ namespace SimpleTest
 		public MainPage()
 		{
 			InitializeComponent();
-		}
+            BindingContext = new EmployeeViewModel(new EmployeeDataService());
+        }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
